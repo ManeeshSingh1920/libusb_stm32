@@ -41,6 +41,8 @@
     #if (defined(FORCE_ASM_DRIVER) || defined(STM32L100xC)) && !defined(FORCE_C_DRIVER)
         #define USE_STMV1A_DRIVER
     #endif
+#elif defined(STM32F1)
+    #define USE_STMV3_DRIVER
 #elif defined(STM32L476xx)
     #define USE_STMV2_DRIVER
 #else
@@ -66,7 +68,11 @@
     #elif defined(USE_STMV2_DRIVER)
         extern const struct usbd_driver usb_stmv2;
         #define usbd_hw usb_stmv2
+    #elif defined(USE_STMV3_DRIVER)
+        extern const struct usbd_driver usb_stmv3;
+        #define usbd_hw usb_stmv3
     #endif
+
 #endif
 
 #if defined (__cplusplus)

@@ -61,6 +61,21 @@
     #else
         #define UID_BASE        0x1FF800D0
     #endif
+#elif defined(STM32F1)
+/* common definitions for STM32F100xx */
+    #define USB_EPBASE      0x40005C00
+    #define USB_REGBASE     0x40005C40
+    #define USB_CNTR        0x00
+    #define USB_ISTR        0x04
+    #define USB_FNR         0x08
+    #define USB_DADDR       0x0C
+    #define USB_BTABLE      0x10
+    #define USB_PMABASE     0x40006000
+    #define RCC_BASE        0x40021000
+    #define RCC_APB1ENR     0x1C
+    #define RCC_APB1RSTR    0x10
+    #define RCC_APB2ENR     0x18
+    #define UID_BASE        0x1FFFF7E8
 #else
     #error Unsupported MCU
 #endif
